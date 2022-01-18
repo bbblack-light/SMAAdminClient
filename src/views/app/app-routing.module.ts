@@ -5,14 +5,14 @@ import { LoginPageComponent } from './../login-page/login-page.component';
 
 const routes: Routes = [
   {
-    path: 'first-component',
+    path: '',
     component: AppComponent,
   },
-  { path: 'login', component: LoginPageComponent },
+  { path: 'login/', component: LoginPageComponent },
 ];
-todo: check why routes not working
+// todo: check why routes not working
 @NgModule({
-  imports: [RouterModule.forRoutes(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
