@@ -16,7 +16,7 @@ export class AppConfig {
     public apiPort:string = "9090";
     public apiProtocol:string;
     public apiHostName:string;
-    public baseApiPath:string;
+    public baseApiPath:string = "https://sma-server.herokuapp.com";
 
     constructor(){
         if (this.apiProtocol===undefined){
