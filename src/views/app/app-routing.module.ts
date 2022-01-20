@@ -4,11 +4,8 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './../login-page/login-page.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AppComponent,
-  },
-  { path: 'login/', component: LoginPageComponent },
+  { path: '', component: AppComponent },
+  { path: 'login', component: LoginPageComponent },
 ];
 // todo: check why routes not working
 @NgModule({
