@@ -10,10 +10,27 @@ import { AppConfig } from 'src/app-config';
 import { ApiRequestService } from 'src/services/api-request.service';
 import { UserService } from 'src/services/user.service';
 import { LoginService } from 'src/services/login.service';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [AppComponent, LoginPageComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule
+  ],
   providers: [
     AppConfig,
     ApiRequestService,

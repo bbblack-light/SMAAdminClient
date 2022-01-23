@@ -9,14 +9,13 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  
+  showFiller = false;
   constructor(
     private userInfoService: UserInfoService,
-    private router: Router) {}
+    public router: Router) {}
 
   ngOnInit(): void {
     if (this.userInfoService.getStoredToken() == null) {
-      console.log('hi');
       this.router.navigateByUrl('/login');
     }
   }
