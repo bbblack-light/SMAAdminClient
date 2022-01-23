@@ -1,6 +1,6 @@
 <mat-drawer-container class="example-container" autosize *ngIf="router.url != '/login'">
     <mat-drawer #drawer class="example-sidenav" mode="push" id="menu-drawer">        
-        <button mat-raised-button>
+        <button mat-raised-button  (click)="drawer.toggle()">
             Toggle extra text
         </button>
     </mat-drawer>
