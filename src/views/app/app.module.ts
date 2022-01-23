@@ -17,7 +17,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from '../menu/menu.component';
 @NgModule({
   declarations: [AppComponent, LoginPageComponent, MenuComponent],
   imports: [
