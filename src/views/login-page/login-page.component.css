@@ -1,6 +1,15 @@
-.center-div {
-    margin: auto;
-    height: 100vh;
+.container-div {
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
     width: 30%;
-    align-items: center;
+    margin: auto;
 }
