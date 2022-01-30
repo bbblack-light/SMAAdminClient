@@ -14,8 +14,8 @@ export class AppConfig {
 
     // API Related configs
     public apiPort:string = "9090";
-    public apiProtocol:string;
-    public apiHostName:string;
+    public apiProtocol:string ="https:";
+    public apiHostName:string = "sma-server.herokuapp.com";
     public baseApiPath:string = "https://sma-server.herokuapp.com";
 
     constructor(){

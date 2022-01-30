@@ -1,3 +1,21 @@
 #menu-drawer {
-    width: 300px;
+    width: 200px;
+}
+
+.flex-menu-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container-drawer {
+    height: 100vh;
+}
+
+.text-align-start {
+    text-align: start;
+}
+
+.font20 {
+    font-size: 20;
 }

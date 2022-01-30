@@ -11,14 +11,14 @@ import { UserInfoService } from '../../services/user-info.service';
 export class MenuComponent implements OnInit {
 
   constructor(
-    // private loginService: LoginService,
+    private loginService: LoginService,
     public router: Router) { }
 
   ngOnInit(): void {
   }
 
   logout() {
-    // this.loginService.logout();
+    this.loginService.logout();
     this.navigatetToLogin();
   }
 
