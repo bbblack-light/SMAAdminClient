@@ -9,7 +9,7 @@
 }
 
 .container-drawer {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .text-align-start {
@@ -18,4 +18,12 @@
 
 .font20 {
     font-size: 20;
+}
+
+.router-container {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 4vh;
 }

@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { LoginService } from 'src/services/login.service';
+import { authCodeFlowConfig } from 'src/utils/authCodeFlowConfig';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +17,8 @@ export class LoginPageComponent implements OnInit {
   isBusy: boolean = true;
   constructor(
     private loginService: LoginService,
-    private router: Router) {}
+    private router: Router,
+    private oauthService: OAuthService) {}
 
   ngOnInit() {
     this.isBusy = false;
@@ -57,6 +60,26 @@ export class LoginPageComponent implements OnInit {
           this.isBusy = false;
         }
       );
+  }
+
+  loginVk() {
+    
+    let href = 'https://oauth.vk.com/authorize?' + 
+    'client_id=8102211&' + 
+    'display=page&' + 
+    'redirect_uri=http://localhost:4200/auth&' + 
+    'scope=friends&' + 
+    'response_type=token&' + 
+    'v=5.131&' + 
+    'state=123456';
+    window.location.href = 'https://oauth.vk.com/authorize?'+
+      'client_id=8102211'+
+      '&display=page'+
+      '&redirect_uri=http://localhost:4200/auth'+
+      '&group_ids=142048042'+
+      '&scope=messages'+
+      '&response_type=code'+
+      '&v=5.131';
   }
 
   @HostListener('window:keyup', ['$event'])

@@ -30,5 +30,10 @@ export class AppComponent implements OnInit {
   navigatetToLogin(){
       this.router.navigate(['/login']); 
   }
+
+  navigate(value) {
+    this.router.navigate([value]);
+  }
+
   title = 'SMAAdminClient';
 }

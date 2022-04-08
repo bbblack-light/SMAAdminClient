@@ -1,18 +1,18 @@
-<mat-drawer-container class="container-drawer" autosize *ngIf="router.url != '/login'">
+<mat-drawer-container class="container-drawer" autosize >
     <mat-drawer #drawer class="example-sidenav" mode="push" id="menu-drawer">
         <div class="flex-menu-block">
             <mat-toolbar color="primary">
                 <span>Меню</span>
             </mat-toolbar>
-            <button mat-button class="text-align-start">Дисциплины</button>
+            <button mat-button class="text-align-start" (click)="navigate('/disciplines')">Дисциплины</button>
+            <button mat-button class="text-align-start" (click)="navigate('/classes')">Классы</button>
             <button mat-button class="text-align-start">Достижения</button>
-            <button mat-button class="text-align-start">Классы</button>
             <button mat-button class="text-align-start">Пользователи</button>
-            <button (click)="logout()" mat-button class="text-align-start" color="warn">Выйти</button>
+            <button (click)="logout(); drawer.toggle()" mat-button class="text-align-start" color="warn">Выйти</button>
         </div>
     </mat-drawer>
 
-    <p>
+    <p *ngIf="router.url != '/login'">
         <mat-toolbar color="primary">
             <button mat-icon-button class="example-icon" 
                     aria-label="Example icon-button with menu icon" 
@@ -29,7 +29,7 @@
             </button>
         </mat-toolbar>
     </p>
-    <router-outlet></router-outlet>
+    <div class="router-container">
+        <router-outlet></router-outlet>
+    </div>
 </mat-drawer-container>
-
-<router-outlet *ngIf="router.url == '/login'"></router-outlet>
