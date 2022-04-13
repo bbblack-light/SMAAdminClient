@@ -35,7 +35,7 @@ export class DisciplinesPageComponent implements OnInit {
   save(discipline = new Disciplines(null, "", "")) {
     const dialogRef = this.dialog.open(DisciplineEditDialogComponent, {
       width: '400px',
-      data: discipline
+      data: {...discipline}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -45,14 +45,14 @@ export class DisciplinesPageComponent implements OnInit {
           this.disciplines.addElement(res);
         }
         else {
-          this.disciplines.changeElement(res);
+          this.disciplines.changeElement(discipline, res);
         }
       });
     });
   }
 
   update() {
-    this.save({...this.disciplines.getSelected(0)});
+    this.save(this.disciplines.getSelected(0));
     this.disciplines.clearSelection();
   }
 

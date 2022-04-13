@@ -9,10 +9,12 @@ export class MyOwnMatTableDataSource<T extends BaseModel> extends MatTableDataSo
       this.updateData();
     }
   
-    changeElement(element : T) {
-      let index = this.data.indexOf(element);
+    changeElement(oldElement : T, newElement : T) {
+      let index = this.data.indexOf(oldElement);
+      console.log('changing')
       if (index!=null) {
-        this.data[index] = {...element}
+        this.data[index] = {...newElement}
+        this.updateData();
       }
     }
   
