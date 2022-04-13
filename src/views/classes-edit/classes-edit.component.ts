@@ -12,10 +12,9 @@ import { DisciplineService } from 'src/services/disciplines.service';
 })
 export class ClassesEditComponent implements OnInit {
   public disciplines : Disciplines [];
-  public clas : Classes;
+  public clas : Classes = new Classes(null, "", "", []);
   public id : number;
-  public toppingsControl = new FormControl([]);
-  public toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  public disciplinesControl = new FormControl([]);
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -24,32 +23,44 @@ export class ClassesEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.disciplinesService.getAll().subscribe(res => this.disciplines = res);
+    this.disciplinesService.getAll().subscribe(res => {
+      this.disciplines = res;
 
-    this.id = this.route.snapshot.params['id'];
-    if (this.id == 0) {
-      this.clas = new Classes(null, "", "", []);
-    }
-    else {
-      this.classService.get(this.id).subscribe(res => this.clas = res);
-    }
+      this.id = this.route.snapshot.params['id'];
+      if (this.id != 0){
+        this.classService.get(this.id).subscribe(res => {
+          this.clas = res;
+          this.disciplinesControl.setValue(this.disciplines.filter(d=> res.disciplines.some(rd => rd.id === d.id)));
+          console.log(this.disciplinesControl.value);
+        });
+      }
+    });
+  }
+
+  setClass(clas) {
+    this.clas = clas;
+    console.log(clas);
+    this.disciplinesControl.setValue(this.clas.disciplines);
   }
 
   update() {
+    this.clas.disciplines = this.disciplinesControl.value;
     this.classService.update(this.clas).subscribe(res => {
-      if (res.id!=null) {
-        this.router.navigate(['/classes']);
-      }
+      this.router.navigate(['/classes']);
     })
   }
 
-  get() {
-    console.log(this.toppingsControl.value);
+  back() {
+    this.router.navigate(['/classes']);
   }
 
-  onToppingRemoved(topping: Disciplines) {
-    const toppings = this.toppingsControl.value as Disciplines[];
-    this.toppingsControl.setValue(toppings.filter(x=> x.id != topping.id)); // To trigger change detection
+  get() {
+    console.log(this.disciplinesControl.value);
+  }
+
+  onToppingRemoved(discipline: Disciplines) {
+    const toppings = this.disciplinesControl.value as Disciplines[];
+    this.disciplinesControl.setValue(toppings.filter(x=> x.id != discipline.id)); // To trigger change detection
   }
 
 }

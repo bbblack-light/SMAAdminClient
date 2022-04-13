@@ -62,5 +62,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .w10 {
   width: 10%;
 }
+
+mat-drawer-content { 
+  min-height: 100vh !important;
+  // flex: 1 1 auto !important; 
+}
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
