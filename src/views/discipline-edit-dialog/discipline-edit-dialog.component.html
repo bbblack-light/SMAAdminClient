@@ -1,5 +1,4 @@
-<h1 mat-dialog-title *ngIf="data.id==null">Новый предмет</h1>
-<h1 mat-dialog-title *ngIf="data.id!=null">Изменение предмета</h1>
+<h1 mat-dialog-title *ngIf="data.id==null">{{data.id==null ? 'Новый предмет' : 'Изменение предмета'}}</h1>
 <div mat-dialog-content>
   <mat-form-field appearance="fill" class="w-100">
     <mat-label>Название</mat-label>

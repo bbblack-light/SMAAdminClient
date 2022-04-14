@@ -5,6 +5,8 @@ import { Achievement } from 'src/model/buisness/Achievement';
 import { Disciplines } from 'src/model/buisness/Disciplines';
 import { AchievementService } from 'src/services/achievement.service';
 import { DisciplineService } from 'src/services/disciplines.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ImageCropperDialogComponent } from '../image-cropper-dialog/image-cropper-dialog.component';
 
 @Component({
   selector: 'app-achiviement-edit-page',
@@ -16,7 +18,9 @@ export class AchiviementEditPageComponent implements OnInit {
   public achiviement : Achievement = new Achievement(null, "", "", "", 0);
   public id : number;
   public disciplinesControl = new FormControl([]);
+
   constructor(
+    public dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
     private disciplinesService: DisciplineService,
@@ -62,5 +66,17 @@ export class AchiviementEditPageComponent implements OnInit {
   onToppingRemoved(discipline: Disciplines) {
     const toppings = this.disciplinesControl.value as Disciplines[];
     this.disciplinesControl.setValue(toppings.filter(x=> x.id != discipline.id)); // To trigger change detection
+  }
+
+  uploadFile(): void {
+    const dialogRef = this.dialog.open(ImageCropperDialogComponent, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => { 
+      if (result==null || result===undefined) return;
+
+      this.achiviement.base64 = result;
+    });
   }
 }

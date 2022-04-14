@@ -40,6 +40,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { AchiviementsPageComponent } from '../achiviements-page/achiviements-page.component';
 import { AchiviementEditPageComponent } from '../achiviement-edit-page/achiviement-edit-page.component';
 import { AchievementService } from 'src/services/achievement.service';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ImageCropperDialogComponent } from '../image-cropper-dialog/image-cropper-dialog.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { AchievementService } from 'src/services/achievement.service';
     ClassesEditComponent,
     AuthPageComponent,
     AchiviementsPageComponent,
-    AchiviementEditPageComponent
+    AchiviementEditPageComponent,
+    ImageCropperDialogComponent
   ],
   imports: [
     FormsModule,
@@ -78,7 +81,8 @@ import { AchievementService } from 'src/services/achievement.service';
     MatChipsModule,
     MatSelectModule,
     ReactiveFormsModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
+    ImageCropperModule
   ],
   providers: [
     AppConfig,

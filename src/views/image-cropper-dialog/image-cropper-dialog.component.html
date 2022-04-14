@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Загрузка изображения</h1>
+<div mat-dialog-content>
+    <input type="file" id="fileUpload" (change)="fileChangeEvent($event)" hidden/>
+    <button mat-raised-button (click)="uploadFile()" color="primary" class="w-100 mb-4">Выбрать изображение</button>
+    <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1 / 1"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded($event)"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()">
+    </image-cropper>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-end">
+    <button mat-button (click)="dialogRef.close()">Отмена</button>
+    <button *ngIf="imageChangedEvent!='' " mat-button [mat-dialog-close]="croppedImage" cdkFocusInitial>Сохранить</button>
+</div>
