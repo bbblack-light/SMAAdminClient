@@ -63,6 +63,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 10%;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.header-buttons {
+  margin: auto 0 auto auto;
+}
+
+.header-title {
+  margin: auto 0 auto 0;
+}
+
+.button-on-header {
+  min-width: 100px !important;
+  margin-left: 8px !important;
+}
+
+.main-table {
+  min-width: 100%;
+}
+
 mat-drawer-content { 
   min-height: 100vh !important;
   // flex: 1 1 auto !important; 

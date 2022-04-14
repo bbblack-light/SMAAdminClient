@@ -6,6 +6,8 @@ import { DisciplinesPageComponent } from '../disciplines-page/disciplines-page.c
 import { ClassesEditComponent } from '../classes-edit/classes-edit.component';
 import { ClassesComponent } from '../classes/classes.component';
 import { AuthPageComponent } from '../auth-page/auth-page.component';
+import { AchiviementsPageComponent } from '../achiviements-page/achiviements-page.component';
+import { AchiviementEditPageComponent } from '../achiviement-edit-page/achiviement-edit-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'disciplines', component: DisciplinesPageComponent },
   { path: 'classes', component: ClassesComponent },
   { path: 'classes/:id', component: ClassesEditComponent },
+  { path: 'achievements', component: AchiviementsPageComponent },
+  { path: 'achievements/:id', component: AchiviementEditPageComponent },
   { path: 'auth', component: AuthPageComponent }
 ];
 // todo: check why routes not working

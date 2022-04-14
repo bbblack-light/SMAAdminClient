@@ -37,6 +37,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { AuthPageComponent } from '../auth-page/auth-page.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { AchiviementsPageComponent } from '../achiviements-page/achiviements-page.component';
+import { AchiviementEditPageComponent } from '../achiviement-edit-page/achiviement-edit-page.component';
+import { AchievementService } from 'src/services/achievement.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,9 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     DisciplineEditDialogComponent,
     ClassesComponent,
     ClassesEditComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    AchiviementsPageComponent,
+    AchiviementEditPageComponent
   ],
   imports: [
     FormsModule,
@@ -82,7 +87,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     UserInfoService,
     LoginService,
     DisciplineService,
-    ClassesService
+    ClassesService,
+    AchievementService
   ],
   bootstrap: [AppComponent],
 })

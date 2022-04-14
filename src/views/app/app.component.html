@@ -4,9 +4,9 @@
             <mat-toolbar color="primary">
                 <span>Меню</span>
             </mat-toolbar>
-            <button mat-button class="text-align-start" (click)="navigate('/disciplines')">Дисциплины</button>
-            <button mat-button class="text-align-start" (click)="navigate('/classes')">Классы</button>
-            <button mat-button class="text-align-start">Достижения</button>
+            <button mat-button class="text-align-start" (click)="navigate('/disciplines'); drawer.toggle()">Дисциплины</button>
+            <button mat-button class="text-align-start" (click)="navigate('/classes'); drawer.toggle()">Классы</button>
+            <button mat-button class="text-align-start" (click)="navigate('/achievements'); drawer.toggle()">Достижения</button>
             <button mat-button class="text-align-start">Пользователи</button>
             <button (click)="logout(); drawer.toggle()" mat-button class="text-align-start" color="warn">Выйти</button>
         </div>

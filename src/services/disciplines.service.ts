@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Disciplines } from 'src/model/buisness/Disciplines';
 import { ApiRequestService } from './api-request.service';
 
-export interface LoginRequestParam {
-  username: string;
-  password: string;
-}
-
 @Injectable()
 export class DisciplineService {
 
   constructor(
-    private router: Router,
     private apiRequest: ApiRequestService
   ) {}
 

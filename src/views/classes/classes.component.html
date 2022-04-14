@@ -1,12 +1,16 @@
 <div class="main-container">
     <div class="page-header">
-        <h1 class="header-title">Предметы</h1>
+        <h1 class="header-title">Классы</h1>
         <div class="header-buttons">
             <button mat-raised-button class="button-on-header" (click)="update(null)">Добавить</button>
             <!-- <button mat-raised-button class="button-on-header" (click)="update()" color="primary">Редактировать</button>
             <button mat-raised-button class="button-on-header" color="warn" (click)="deleteD()">Удалить</button> -->
         </div>
     </div>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Поиск</mat-label>
+      <input matInput [(ngModel)]="filterString" (ngModelChange)="filterClasses()">
+    </mat-form-field>
     <div *ngFor="let clas of filteredClasses" class="mb-4">
       <mat-card>
         <mat-card-title>{{clas.name}}</mat-card-title>
@@ -17,8 +21,8 @@
         </mat-card-subtitle>
         <mat-card-content>{{clas.description}}</mat-card-content>
         <mat-card-actions class="d-flex flex-row-reverse">
-          <button mat-raised-button class="button-on-header" color="primary" (click)="update(clas)">Редактировать</button>
-          <button mat-raised-button class="button-on-header" color="warn" (click)="deleteD(clas)">Удалить</button>
+          <button mat-raised-button color="primary" (click)="update(clas)">Редактировать</button>
+          <button mat-raised-button color="warn" (click)="deleteD(clas)">Удалить</button>
         </mat-card-actions>
       </mat-card>
     </div>
