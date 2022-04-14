@@ -12,8 +12,8 @@ export class AppConfig {
     public currencyFormat = { style:"currency", currency: "USD" };
     public dateFormat     = { year:'numeric', month: 'short', day: 'numeric'};
 
-    // public baseApiPath:string = "https://sma-server.herokuapp.com/";
-    public baseApiPath:string = "http://localhost:9191/";
+    public baseApiPath:string = "https://sma-server.herokuapp.com/";
+    // public baseApiPath:string = "http://localhost:9191/";
 
     constructor(){
         if (this.locale===undefined){
